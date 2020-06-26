@@ -4,8 +4,10 @@ import com.mliddy.calcengine.Adder;
 import com.mliddy.calcengine.CalculateBase;
 import com.mliddy.calcengine.CalculateHelper;
 import com.mliddy.calcengine.Divider;
+import com.mliddy.calcengine.DynamicHelper;
 import com.mliddy.calcengine.InvalidStatementException;
 import com.mliddy.calcengine.MathEquation;
+import com.mliddy.calcengine.MathProcessing;
 import com.mliddy.calcengine.Multiplier;
 import com.mliddy.calcengine.Subtractor;
 
@@ -18,7 +20,26 @@ public class Main {
 //        char[] opCodes = {'d', 'a', 's', 'm'};
 //        double[] results = new double[opCodes.length];
 
+        //useMathEquation();
+        //useCalculatorBase();
+        //useCalculateHelper();
 
+        String[] statements = {
+                "add 25 92"
+        };
+
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] {
+                new Adder()
+        });
+
+
+
+        for(String statement:statements){
+            String output = helper.process(statement);
+            System.out.println(output);
+        }
+    }
+    static void useCalculateHelper() {
         String[] statements = {
                 "add 1.0",
                 "add xx 25.0",
@@ -29,6 +50,9 @@ public class Main {
                 "multiply 11 3"
 
         };
+
+
+
 
         CalculateHelper helper = new CalculateHelper();
         for(String statement:statements) {
