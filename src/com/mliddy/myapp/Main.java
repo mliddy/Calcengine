@@ -5,6 +5,7 @@ import com.mliddy.calcengine.CalculateBase;
 import com.mliddy.calcengine.CalculateHelper;
 import com.mliddy.calcengine.Divider;
 import com.mliddy.calcengine.DynamicHelper;
+import com.mliddy.calcengine.PowerOf;
 import com.mliddy.calcengine.InvalidStatementException;
 import com.mliddy.calcengine.MathEquation;
 import com.mliddy.calcengine.MathProcessing;
@@ -25,11 +26,14 @@ public class Main {
         //useCalculateHelper();
 
         String[] statements = {
-                "add 25 92"
+                "add 25 92",
+                "add 10 20",
+                "subtract 25 7",
+                "power 6 2"
         };
 
         DynamicHelper helper = new DynamicHelper(new MathProcessing[] {
-                new Adder()
+                new Adder(),new Subtractor(), new PowerOf()
         });
 
 
